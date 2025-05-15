@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-# i really can't think of a name
-title = "Ang Buhay ay Weather Weather lang"
+# we should think of something witty here for the title
+title = "king lebron"
 
 st.set_page_config(
     page_title="cs180",
