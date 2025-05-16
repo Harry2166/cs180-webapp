@@ -1,6 +1,5 @@
 import streamlit as st
-from layout import section 
-from Home import prediction_classes 
+from layout import prediction_classes, section 
 
 st.set_page_config(page_title="First Model", page_icon="👤")
 

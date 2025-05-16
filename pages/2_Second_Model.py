@@ -3,8 +3,7 @@ import torch
 from transformers import AutoTokenizer, AutoModel 
 import joblib
 import os
-from layout import section 
-from Home import prediction_classes 
+from layout import prediction_classes, section 
 
 st.set_page_config(page_title="Second Model", page_icon="👤")
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

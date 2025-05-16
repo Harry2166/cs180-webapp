@@ -2,12 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-prediction_classes = {
-    0: "risk",
-    1: "neutral",
-    2: "opportunity"
-}
-
 # we should think of something witty here for the title
 title = "king lebron"
 
