@@ -23,9 +23,9 @@ section("### Process", ""
 1. Preprocess text (tokenizing, padding and truncation of text, sampling labels, etc.)
 2. Use Optuna to find the best fine-tuning settings (e.g., learning rate, batch size).
 3. Train BERT on labeled sentiment data using the best parameters from Optuna.
-4. Get embeddings from the fine-tuned BERT model via mean pooling
-5. Use these embeddings to train a Random Forest Classifier for final sentiment prediction
-6. Classify sentiment using the trained RFC
+4. Get embeddings from the fine-tuned BERT model via mean pooling.
+5. Use these embeddings to train a Random Forest Classifier for final sentiment prediction.
+6. Classify sentiment using the trained RFC.
 
 
     """
