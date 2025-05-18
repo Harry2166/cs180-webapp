@@ -56,8 +56,11 @@ section("### Process",
     """
 )
 
-section("## Results")
+section("## Results", "")
 st.write("Out of the two trained ML models, the model that produced the best results was the trained Logistic Regression model. Hence, this model was selected and can be tested below.")
+
+st.image(os.path.abspath("../cs180-webapp/images/rfc_results.png"), caption="Results of the Random Forest Classfier Model")
+st.image(os.path.abspath("../cs180-webapp/images/lr_results.png"), caption="Results of the Logistic Regression Model")
 
 section("## Try Our Model", "")
 user_input = st.text_input("Enter your climate-related text", "")
