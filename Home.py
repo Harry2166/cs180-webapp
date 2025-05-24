@@ -32,8 +32,8 @@ st.markdown(
     """
 )
 
-st.write("## Training Data")
-# i'll place the data here later
-st.write("Here is our training data:")
-df = pd.DataFrame(np.random.randn(50, 20), columns=("col %d" % i for i in range(20)))
-st.dataframe(df)
+# st.write("## Training Data")
+# # i'll place the data here later
+# st.write("Here is our training data:")
+# df = pd.DataFrame(np.random.randn(50, 20), columns=("col %d" % i for i in range(20)))
+# st.dataframe(df)
