@@ -49,7 +49,7 @@ if uploaded_file:
             predictions = ml.predict(X)
             predicted_classes = np.argmax(predictions, axis=1)
 
-            df["Prediction"] = [prediction_classes[p] for p in predictions]
+            df["Prediction"] = [prediction_classes[p] for p in predicted_classes]
 
             st.success("Classification complete!")
             st.write(df)
