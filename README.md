@@ -4,7 +4,7 @@ This is the designated web application for group 13: king lebron done for the pr
 ## Models
 The models used in this project are the following:
 1. Logistic Regression and RandomForestClassfier models trained on custom fine-tuned BERT model's embeddings that was built on top of [distilbert](https://huggingface.co/distilbert/distilbert-base-uncased).
-2. Birectional LSTM using embeddings from pretrained word2vec model on google news articles.
+2. Birectional LSTM using embeddings from a Word2Vec model pre-trained on Google news articles.
 
 You may access the trained models here:
 1. [BERT and ML models](https://huggingface.co/Harry2166/fine-tuned-climate-bert/tree/main)
@@ -20,12 +20,16 @@ You may access the trained models here:
 ### BERT model
 0. In `bert-fine_tuning-ml-training.ipynb`, place the training data and development data into the files sidebar.
 1. You may run the code right now if you want to fine-tune your own BERT model that is built on top of distilbert.
-2. In `bert-ml-evaluation.ipynb`,  placce the development data into the files sidebar.
+2. In `bert-ml-evaluation.ipynb`,  place the development data into the files sidebar.
 3. You may run the code right to see the performance relative to the development set.
 4. In running `demo_code.ipynb`, you may opt to run using the logistic regression model or the random forest classifier.
 
 ### BiLSTM model
-0. insert text here
+0. In `bilstm-fine_tuning-ml-training.ipynb`, place the training data and development data into the files sidebar.
+1. Run the code to find the best hyperparameters and build your own Bidirectional LSTM model.
+2. In `bilstm-ml-evaluation.ipynb`,  place the development data into the files sidebar.
+3. You may run the code right to see the performance relative to the development set.
+4. In running `demo_code.ipynb`, you may run the best model found in our runs to test an uploaded csv of texts.
 
 ## Team
 
