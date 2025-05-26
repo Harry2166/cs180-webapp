@@ -24,7 +24,7 @@ st.markdown(
     paragraphs—tasked with classifying each paragraph's sentiment regarding climate-related topics. 
     To address this challenge, we implemented and evaluated deep learning models, 
     including a fine-tuned BERT (Bidirectional Encoder Representations from Transformers) model 
-    and explored hybrid architectures such as RNN and CNN (to be finalized). 
+    and LSTMs. 
 
     Our approach follows the structure of a closed shared
     task, using only the provided dataset to train and develop our models, with the goal of achieving high performance on sentiment

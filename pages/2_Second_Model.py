@@ -22,11 +22,27 @@ tokenizer = tokenizer_from_json(tokenizer_data)
 
 hf_token = st.secrets["HF_TOKEN"]
 login(token=hf_token)
-st.set_page_config(page_title="Second Model", page_icon="👤")
+st.set_page_config(page_title="Bidirectional LSTM", page_icon="👤")
 
 section("# Second Model")
-section("## Methodology")
-section("## Results")
+section("## Methodology", """
+This approach will tackle text sentiment analysis through a recurrent neural network, specifically through a bidirectional LSTM or BiLSTM. BiLSTMs allow meaningful relationships and contextual information to be sent both forwards and backwards in a provided text. 
+
+A set of vectors are used which contains 300-dimensional vectors for 3 million words and phrases. These come from a pre-trained Word2Vec model that was trained on Google News articles. Using the vectors for each word to create an embedding matrix, the model contains an embedding layer, 2 bidirectional LSTM layers and finally the output dense layer for 3 classifications.
+
+Keras Tuner was also used to find the best parameters at each part of the layers to get the best results.
+""")
+
+section("### Process", """
+Detailed below is the general process for how the model would be done:
+1. Prepare Word2Vec vectors from ‘word2vec-google-news-300’
+2. Text will be tokenized, converted to sequences and padded.
+3. Model compiled with an embedding layer, 2 BiLSTM layers and the output layer.
+4. Best hyperparameters found
+5. Model refitted to hyperparameters
+6. Model predicts.
+""")
+section("## Results", "")
 section("## Try Our Model", "")
 
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
