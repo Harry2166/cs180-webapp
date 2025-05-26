@@ -68,6 +68,7 @@ st.image(os.path.abspath("../cs180-webapp/images/rfc_results.png"), caption="Res
 st.image(os.path.abspath("../cs180-webapp/images/lr_results.png"), caption="Results of the Logistic Regression Model")
 st.write("Out of the two trained ML models, the model that produced the best results was the trained Logistic Regression model. Hence, this model was selected and can be tested below.")
 
+section("## Try Our Model", "")
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
