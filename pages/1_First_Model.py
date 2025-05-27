@@ -6,22 +6,28 @@ from transformers import AutoTokenizer, AutoModel
 from layout import prediction_classes, section 
 import pandas as pd
 import numpy as np
+from huggingface_hub import hf_hub_download, login
 
 st.set_page_config(page_title="First Model", page_icon="👤")
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-RF_MODEL_PATH = os.path.join(BASE_DIR, "models", "random_forest.pkl")
-LR_MODEL_PATH = os.path.join(BASE_DIR, "models", "logistic_regression.pkl")
+
+BERT_MODEL = "Harry2166/fine-tuned-climate-bert"
+FILENAME_RF = "random_forest.pkl"
+FILENAME_LR = "logistic_regression.pkl"
+
+rf_path = hf_hub_download(repo_id=BERT_MODEL, filename=FILENAME_RF)
+lr_path = hf_hub_download(repo_id=BERT_MODEL, filename=FILENAME_LR)
 
 @st.cache_resource
 def load_models():
     tokenizer = AutoTokenizer.from_pretrained("Harry2166/fine-tuned-climate-bert")
     bert_model = AutoModel.from_pretrained("Harry2166/fine-tuned-climate-bert")
-    ml_model = joblib.load(LR_MODEL_PATH)
+    ml_model = joblib.load(lr_path)
     return tokenizer, bert_model, ml_model 
 
 def get_embedding(text, tokenizer, model):
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length")
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
     with torch.no_grad():
         outputs = model(**inputs)
@@ -91,7 +97,8 @@ if uploaded_file:
             predictions = ml.predict(X)
 
             # Add results to dataframe
-            df["Prediction"] = [prediction_classes[p] for p in predictions]
+            df["Prediction"] = [p for p in predictions]
+            df["Converted Prediction"] = [prediction_classes[p] for p in predictions]
 
             st.success("Classification complete!")
             st.write(df)

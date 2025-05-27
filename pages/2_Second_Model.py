@@ -8,12 +8,10 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import tokenizer_from_json
 import json
-import os
 
 REPO = "cdvitug/bilstm"
 FILENAME = "bidirectional_lstm_model.h5"
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-TOKENIZER_MODEL_PATH = os.path.join(BASE_DIR, "models", "tokenizer.json")
+TOKENIZER_MODEL_PATH = hf_hub_download(repo_id=REPO, filename="tokenizer.json")
 
 with open(TOKENIZER_MODEL_PATH, "r", encoding="utf-8") as f:
     tokenizer_data = json.load(f)
@@ -24,7 +22,7 @@ hf_token = st.secrets["HF_TOKEN"]
 login(token=hf_token)
 st.set_page_config(page_title="Bidirectional LSTM", page_icon="👤")
 
-section("# Second Model")
+section("# Second Model", "")
 section("## Methodology", """
 This approach will tackle text sentiment analysis through a recurrent neural network, specifically through a bidirectional LSTM or BiLSTM. BiLSTMs allow meaningful relationships and contextual information to be sent both forwards and backwards in a provided text. 
 
@@ -65,7 +63,8 @@ if uploaded_file:
             predictions = ml.predict(X)
             predicted_classes = np.argmax(predictions, axis=1)
 
-            df["Prediction"] = [prediction_classes[p] for p in predicted_classes]
+            df["Prediction"] = [p for p in predicted_classes]
+            df["Converted Prediction"] = [prediction_classes[p] for p in predicted_classes]
 
             st.success("Classification complete!")
             st.write(df)
