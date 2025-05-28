@@ -40,7 +40,7 @@ Detailed below is the general process for how the model would be done:
 5. Model refitted to hyperparameters
 6. Model predicts.
 """)
-section("## Results", "")
+# section("## Results", "")
 section("## Try Our Model", "")
 
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
